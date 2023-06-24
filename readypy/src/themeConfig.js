@@ -16,10 +16,10 @@ export const listThemes = {
     //     theme: 'dark',
     //     className: 'dark'
     // },
-    'VSCode Dark': {
-        theme: themes.vscodeDark,
-        className: 'dark',
-    },
+    // 'VSCode Dark': {
+    //     theme: themes.vscodeDark,
+    //     className: 'dark',
+    // },
     // 'ABCDEF': {
     //     theme: themes.abcdef,
     //     className: 'dark',

@@ -1,18 +1,16 @@
 import React from 'react';
 import './App.css';
-import { listThemes } from './themeConfig';
 
 import Header from './components/Header/Header'
 import Workspace from './components/Workspace/Workspace';
 import { loadPyodide } from "pyodide";
 
 
-
 function App() {
   const [editorValue, setEditorValue] = React.useState("");
   const [terminalValue, setTerminalValue] = React.useState("");
   const [runningState, setRunningState] = React.useState(false);
-  const [themeName, setThemeName] = React.useState(Object.keys(listThemes)[0]);
+  const [theme, setTheme] = React.useState('dark');
   const [layout, setLayout] = React.useState(window.innerWidth < 768 ? 'row' : 'col');
 
   const runCode = () => {
@@ -78,31 +76,30 @@ function App() {
   };
 
   const handleThemeChange = (event) => {
-    setThemeName(event.target.value);
+    if (theme === 'light') setTheme('dark');
+    else setTheme('light');
   };
 
-  const handleLayoutChange = (event) => {
-    setLayout(event.target.value);
+  const handleLayoutChange = () => {
+    if (layout === 'col') setLayout('row');
+    else setLayout('col');
   };
 
   return (
-    <div id='app' className={listThemes[themeName].className}>
+    <div id='app'>
       <Header
         runCode={runCode}
         updateCode={setEditorValue}
-        listThemes={listThemes}
         handleThemeChange={handleThemeChange}
-        themeNameInit={themeName}
         runningState={runningState}
         handleLayoutChange={handleLayoutChange}
-        layoutInit={layout}
       />
       <Workspace
         editorValue={editorValue}
         setEditorValue={setEditorValue}
         terminalValue={terminalValue}
         setTerminalValue={setTerminalValue}
-        theme={listThemes[themeName].theme}
+        theme={theme}
         clearTerminal={clearTerminal}
         layout={layout}
       />
