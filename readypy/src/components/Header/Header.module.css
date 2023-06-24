@@ -44,7 +44,8 @@
     padding: 0 10px 0 15px;
     align-items: center;
     justify-content: center;
-    color: #cacaca;
+    color: inherit;
+    opacity: 0.8;
     position: relative;
     height: 60px;
     background-color: transparent;
@@ -54,8 +55,8 @@
 }
 
 .actions button:hover {
-    color: #fff;
-    border-bottom: 2px solid cyan;
+    opacity: 1;
+    border-bottom: 2px solid darkcyan;
 }
 
 .actions svg {

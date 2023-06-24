@@ -7,7 +7,7 @@ const Header = (props) => {
     return (
         <div className={classes.header}>
             <h1>
-                <span className={classes.logo}><LogoIcon size={15} color="cyan" /></span>
+                <span className={classes.logo}><LogoIcon size={15} color="darkcyan" /></span>
                 <span className={classes.title}>ReadyPy</span>
             </h1>
             <div className={classes.actions}>
@@ -15,8 +15,7 @@ const Header = (props) => {
                     <div className={classes.actionItem}>
                         <button onClick={props.handleLayoutChange}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                                <path d="M0,2.3C0,1,0.9,0,2,0h12c1.1,0,2,1,2,2.3v11.4c0,1.3-0.9,2.3-2,2.3H2c-1.1,0-2-1-2-2.3V2.3z M8.5,1.1v13.7H14
-	c0.6,0,1-0.5,1-1.1V2.3c0-0.6-0.4-1.1-1-1.1H8.5z M7.5,1.1H2c-0.6,0-1,0.5-1,1.1v11.4c0,0.6,0.4,1.1,1,1.1h5.5V1.1z"/>
+                                <path d="M0,2.3C0,1,0.9,0,2,0h12c1.1,0,2,1,2,2.3v11.4c0,1.3-0.9,2.3-2,2.3H2c-1.1,0-2-1-2-2.3V2.3z M8.5,1.1v13.7H14 c0.6,0,1-0.5,1-1.1V2.3c0-0.6-0.4-1.1-1-1.1H8.5z M7.5,1.1H2c-0.6,0-1,0.5-1,1.1v11.4c0,0.6,0.4,1.1,1,1.1h5.5V1.1z"/>
                             </svg>
                             Layout
                         </button>

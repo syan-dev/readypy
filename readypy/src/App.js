@@ -1,19 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 
 import Header from './components/Header/Header'
 import Workspace from './components/Workspace/Workspace';
 import { loadPyodide } from "pyodide";
+import { vscodeDarkInit } from '@uiw/codemirror-theme-vscode';
+import { githubLightInit } from '@uiw/codemirror-theme-github';
 
 
 function App() {
-  const [editorValue, setEditorValue] = React.useState("");
-  const [terminalValue, setTerminalValue] = React.useState("");
-  const [runningState, setRunningState] = React.useState(false);
-  const [theme, setTheme] = React.useState('dark');
-  const [layout, setLayout] = React.useState(window.innerWidth < 768 ? 'row' : 'col');
+  const vscodeDark = vscodeDarkInit({
+    settings: {
+      caret: '#c6c6c6',
+      fontFamily: '"Menlo", "Monaco", "Consolas", "Andale Mono", "Ubuntu Mono", "Courier New", monospace'
+    }
+  });
+
+  const githubLight = githubLightInit({
+    settings: {
+      caret: '#c6c6c6',
+      fontFamily: '"Menlo", "Monaco", "Consolas", "Andale Mono", "Ubuntu Mono", "Courier New", monospace'
+    }
+  });
+
+  const [editorValue, setEditorValue] = useState("");
+  const [terminalValue, setTerminalValue] = useState("");
+  const [runningState, setRunningState] = useState(false);
+  const [mode, setMode] = useState('dark');
+  const [theme, setTheme] = useState(vscodeDark);
+  const [layout, setLayout] = useState(window.innerWidth < 768 ? 'row' : 'col');
 
   const runCode = () => {
+
     setTerminalValue("Running Code ...\n");
 
     loadPyodide({
@@ -75,18 +93,22 @@ function App() {
     setTerminalValue("");
   };
 
-  const handleThemeChange = (event) => {
-    if (theme === 'light') setTheme('dark');
-    else setTheme('light');
+  const handleThemeChange = () => {
+    if (mode === 'light') {
+      setTheme(vscodeDark);
+      setMode('dark');
+    } else {
+      setTheme(githubLight);
+      setMode('light');
+    }
   };
 
   const handleLayoutChange = () => {
-    if (layout === 'col') setLayout('row');
-    else setLayout('col');
+    setLayout((prevLayout) => (prevLayout === 'col' ? 'row' : 'col'));
   };
 
   return (
-    <div id='app'>
+    <div id='app' className={mode}>
       <Header
         runCode={runCode}
         updateCode={setEditorValue}
@@ -95,14 +117,15 @@ function App() {
         handleLayoutChange={handleLayoutChange}
       />
       <Workspace
+        theme={theme}
+        layout={layout}
         editorValue={editorValue}
         setEditorValue={setEditorValue}
         terminalValue={terminalValue}
         setTerminalValue={setTerminalValue}
-        theme={theme}
+        runCode={runCode}
         clearTerminal={clearTerminal}
-        layout={layout}
-      />
+        />
     </div>
   );
 }

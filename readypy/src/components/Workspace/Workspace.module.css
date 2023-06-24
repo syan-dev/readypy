@@ -6,13 +6,13 @@
 .grid-col {
     height: calc(100vh - 60px);
     width: 100%;
-    grid-template-columns: 1fr 2px 1fr;
+    grid-template-columns: 1fr 3px 1fr;
 }
 
 .grid-row {
     height: calc(100vh - 60px);
     width: 100%;
-    grid-template-rows: 1fr 2px 1fr;
+    grid-template-rows: 1fr 3px 1fr;
 }
 
 .gutter-col {
@@ -34,7 +34,6 @@
 
 .gutter {
     position: relative;
-    background-color: #2c2f34;
 }
 
 .gutter:after {
@@ -58,7 +57,7 @@
 
 .gutter:hover,
 .gutter:active {
-    background-color: cyan;
+    background-color: darkcyan;
     transition: background-color 0.3s ease-in-out;
 }
 
@@ -81,11 +80,36 @@
 .windowLabel {
     font-size: 12px;
     z-index: 30;
-    color: #cfd0d1;
+    color: inherit;
     height: 40px;
     padding: 0 10px;
     display: flex;
     align-items: center;
+}
+
+.panel button {
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    font-size: 12px;
+    background: none !important;
+    border: none;
+    padding: 0 !important;
+    color: inherit;
+    cursor: pointer;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.panel button svg {
+    margin-right: 5px;
+}
+
+.panel:hover button {
+    opacity: 1;
+}
+
+.panel button:hover {
+    color: darkcyan;
 }
 
 .CodeMirror {
