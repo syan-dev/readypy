@@ -2,7 +2,6 @@
 
 ReadyPy is a Python IDE that runs entirely in the browser. It provides a user-friendly interface for writing, editing, and running Python code without the need to install any software locally. To try out ReadyPy, you can visit the demo website at [readypy.com](https://readypy.com).
 
-
 ![Demo](/images/demo.png)
 
 ## Quick Start
