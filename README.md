@@ -20,7 +20,7 @@ To quickly get started with ReadyPy, follow these steps:
 npm install
 ```
 
-Once the installation is complete, start the ReadyPy development server by running the following command:
+5. Once the installation is complete, start the ReadyPy development server by running the following command:
 
 ```
 npm start
