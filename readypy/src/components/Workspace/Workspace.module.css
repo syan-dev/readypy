@@ -57,7 +57,7 @@
 
 .gutter:hover,
 .gutter:active {
-    background-color: darkcyan;
+    background-color: var(--primary-color);
     transition: background-color 0.3s ease-in-out;
 }
 
@@ -109,7 +109,7 @@
 }
 
 .panel button:hover {
-    color: darkcyan;
+    color: var(--primary-color);
 }
 
 .CodeMirror {

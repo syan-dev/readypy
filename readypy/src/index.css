@@ -9,16 +9,6 @@ body {
   margin: 0;
 }
 
-body .dark {
-  background: #1f2227;
-  color: #cacaca;
-}
-
-body .light {
-  background: #e0e0e0;
-  color: #262626;
-}
-
 body, dd, div, dl, dt, fieldset, form, h1, h2, h3, h4, h5, h6, input, li, ol, p, pre, td, textarea, th, ul {
   margin: 0;
   padding: 0;
@@ -31,4 +21,32 @@ body, dd, div, dl, dt, fieldset, form, h1, h2, h3, h4, h5, h6, input, li, ol, p,
 
 .CodeMirror * {
   font-family: monospace;
+}
+
+.dark {
+  --background-color: #1C2333;
+  --outline-color: #4E5569;
+  --foreground-color: #F5F9FC;
+  --primary-color: cyan;
+  --positive-color: #009118;
+  --negative-color: #E52222;
+}
+
+.light {
+  --background-color: #FCFCFC;
+  --outline-color: #AFB1B3;
+  --foreground-color: #07080A;
+  --primary-color: darkcyan;
+  --positive-color: #00A11B;
+  --negative-color: #FA4B4B;
+}
+
+#app {
+  background: var(--background-color);
+  color: var(--foreground-color);
+}
+
+#split {
+  background: var(--outline-color);
+  color: var(--foreground-color);
 }
