@@ -2,8 +2,6 @@ import React from 'react';
 import CodeMirror from '@uiw/react-codemirror';
 import { ViewPlugin, EditorView } from '@codemirror/view';
 import { EditorState } from '@codemirror/state';
-import { StreamLanguage } from '@codemirror/language';
-import { shell } from '@codemirror/legacy-modes/mode/shell';
 
 
 const Terminal = (props) => {
@@ -20,7 +18,6 @@ const Terminal = (props) => {
 
     return (
         <CodeMirror
-            // value={props.value}
             value={props.runningState ? 'Running code...' : props.value}
             height="100%"
             basicSetup={{
@@ -29,7 +26,6 @@ const Terminal = (props) => {
                 highlightActiveLineGutter: false
             }}
             extensions={[
-                StreamLanguage.define(shell),
                 EditorView.lineWrapping,
                 EditorView.editable.of(false),
                 EditorState.readOnly.of(true),
