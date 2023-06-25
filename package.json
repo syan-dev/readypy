@@ -2,7 +2,7 @@
   "name": "replo",
   "version": "0.1.0",
   "homepage": "https://readypy.com",
-  "private": true,
+  "private": false,
   "dependencies": {
     "@codemirror/lang-python": "^6.1.2",
     "@codemirror/state": "^6.2.1",
