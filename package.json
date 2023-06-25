@@ -1,7 +1,7 @@
 {
   "name": "replo",
   "version": "0.1.0",
-  "homepage": "https://syanng.github.io/readypy",
+  "homepage": "https://readypy.com",
   "private": true,
   "dependencies": {
     "@codemirror/lang-python": "^6.1.2",
