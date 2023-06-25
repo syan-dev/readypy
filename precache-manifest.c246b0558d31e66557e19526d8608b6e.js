@@ -56,7 +56,7 @@ self.__precacheManifest = [
     "url": "/readypy/static/js/runtime~main.a4feaa69.js"
   },
   {
-    "revision": "633e68abc42bc1e3cfc9ee93cb0f3eb9",
+    "revision": "78e223afb7120ff5bbee2ee0151b6430",
     "url": "/readypy/index.html"
   }
 ];
