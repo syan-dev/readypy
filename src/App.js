@@ -22,9 +22,7 @@ function App() {
 
   // Function to initialize Pyodide
   const initializePyodide = async () => {
-    console.log('initialize pyodide')
     if (!pyodide) {
-      console.log('start loading pyodide');
       const py = await loadPyodide({
         indexURL: "https://cdn.jsdelivr.net/pyodide/v0.23.3/full",
         stdout: (text) => {
