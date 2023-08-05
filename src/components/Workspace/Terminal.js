@@ -18,7 +18,7 @@ const Terminal = (props) => {
 
     return (
         <CodeMirror
-            value={props.runningState ? 'Running code...' : props.value}
+            value={props.value}
             height="100%"
             basicSetup={{
                 lineNumbers: false,

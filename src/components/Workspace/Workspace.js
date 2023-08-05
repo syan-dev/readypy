@@ -80,7 +80,6 @@ const Workspace = (props) => {
                                 value={props.terminalValue}
                                 theme={props.theme}
                                 setValue={props.setTerminalValue}
-                                runningState={props.runningState}
                             />
                         </div>
                     </div>
