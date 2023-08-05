@@ -55,7 +55,6 @@ function App() {
 
   // Function to run the Python code using Pyodide
   const runCode = () => {
-    console.log(pyodide);
     if (pyodide) {
       setTerminalValue("");
       pyodide
