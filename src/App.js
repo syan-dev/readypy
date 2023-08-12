@@ -19,6 +19,7 @@ function App() {
   }));
   const [layout, setLayout] = useState(window.innerWidth < 768 ? 'row' : 'col');
   const [pyodide, setPyodide] = useState(null);
+  const runningText = ">>> RUNNING CODE...\n"
 
   // Function to initialize Pyodide
   const initializePyodide = async () => {
@@ -26,10 +27,22 @@ function App() {
       const py = await loadPyodide({
         indexURL: "https://cdn.jsdelivr.net/pyodide/v0.23.3/full",
         stdout: (text) => {
-          setTerminalValue((prev_text) => prev_text + text + '\n');
+          setTerminalValue((prev_text) => {
+            if (prev_text === runningText) {
+              return text + '\n';
+            } else {
+              return prev_text + text + '\n';
+            }
+          });
         },
         stderr: (text) => {
-          setTerminalValue((prev_text) => prev_text + text + '\n');
+          setTerminalValue((prev_text) => {
+            if (prev_text === runningText) {
+              return text + '\n';
+            } else {
+              return prev_text + text + '\n';
+            }
+          });
         },
       });
 
@@ -56,7 +69,7 @@ function App() {
   // Function to run the Python code using Pyodide
   const runCode = () => {
     if (pyodide) {
-      setTerminalValue("");
+      setTerminalValue(runningText);
       pyodide
         .runPythonAsync(editorValue)
         .then(() => {
