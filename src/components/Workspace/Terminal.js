@@ -16,10 +16,13 @@ const Terminal = (props) => {
         }
     );
 
+    const placeholder = '>__READYPY.COM__'
+
     return (
         <CodeMirror
             value={props.value}
             height="100%"
+            placeholder={placeholder}
             basicSetup={{
                 lineNumbers: false,
                 highlightActiveLine: false,

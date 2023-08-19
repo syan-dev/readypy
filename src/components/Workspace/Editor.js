@@ -23,7 +23,7 @@ const Editor = (props) => {
         <CodeMirror
             value={props.value}
             height="100%"
-            placeholder="Welcome to ReadyPy. Write your Python code here..."
+            placeholder="Write your Python code here..."
             basicSetup={{
                 defaultKeymap: false
             }}

@@ -7,9 +7,11 @@ import { loadPyodide } from "pyodide";
 import { vscodeDarkInit } from '@uiw/codemirror-theme-vscode';
 import { githubLightInit } from '@uiw/codemirror-theme-github';
 
+
+
+
 function App() {
   const [editorValue, setEditorValue] = useState("");
-  const [terminalValue, setTerminalValue] = useState("");
   const [mode, setMode] = useState('dark');
   const [theme, setTheme] = useState(vscodeDarkInit({
     settings: {
@@ -19,7 +21,9 @@ function App() {
   }));
   const [layout, setLayout] = useState(window.innerWidth < 768 ? 'row' : 'col');
   const [pyodide, setPyodide] = useState(null);
-  const runningText = ">>> RUNNING CODE...\n"
+  const [terminalValue, setTerminalValue] = useState("");
+
+  // setTerminalValue(console_text);
 
   // Function to initialize Pyodide
   const initializePyodide = async () => {
@@ -28,20 +32,12 @@ function App() {
         indexURL: "https://cdn.jsdelivr.net/pyodide/v0.23.3/full",
         stdout: (text) => {
           setTerminalValue((prev_text) => {
-            if (prev_text === runningText) {
-              return text + '\n';
-            } else {
-              return prev_text + text + '\n';
-            }
+            return prev_text + text + '\n';
           });
         },
         stderr: (text) => {
           setTerminalValue((prev_text) => {
-            if (prev_text === runningText) {
-              return text + '\n';
-            } else {
-              return prev_text + text + '\n';
-            }
+            return prev_text + text + '\n';
           });
         },
       });
@@ -69,7 +65,7 @@ function App() {
   // Function to run the Python code using Pyodide
   const runCode = () => {
     if (pyodide) {
-      setTerminalValue(runningText);
+      setTerminalValue("");
       pyodide
         .runPythonAsync(editorValue)
         .then(() => {
